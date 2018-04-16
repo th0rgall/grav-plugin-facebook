@@ -227,3 +227,14 @@ form:
       default: ''
       validate:
         type: string
+
+    facebook_common_settings.page_token:
+      type: text
+      size: large
+      label: Page token
+      help: Facebook API page token, get using graph explorer https://stackoverflow.com/questions/8231877/facebook-access-token-for-pages
+      placeholder: "page token"
+      default: ''
+      validate:
+        type: string
+

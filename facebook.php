@@ -125,8 +125,9 @@ class FacebookPlugin extends Plugin {
         $url =
             'https://graph.facebook.com/' . $events_page_id
             . '/events?fields=cover,start_time,end_time,name,description,place&access_token='
-            . $config->get('facebook_common_settings.application_id') . '|'
-            . $config->get('facebook_common_settings.application_secret');
+            . $config->get('facebook_common_settings.page_token'); 
+            // . '|'
+            //. $config->get('facebook_common_settings.application_secret');
         $results = Response::get($url);
         $this->parseEventResponse($results, $config);
 
@@ -263,7 +264,7 @@ class FacebookPlugin extends Plugin {
                 }
                 $r[$start_at]['event_link'] = $val->id;
                 $r[$start_at]['name'] = nl2br($val->name);
-                $r[$start_at]['place'] = '';
+                $r[$start_at]['place'] = array();
                 $r[$start_at]['description'] = '';
                 $r[$start_at]['cover'] = '';
 
